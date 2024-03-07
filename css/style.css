@@ -11,6 +11,12 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #333;
+  background-color: #f0f0f0; /* Color de fondo sólido */
+  background-image: url("../assets/img/fondo.jpg"); /* Ruta al archivo SVG */
+  background-repeat: no-repeat; /* Evitar repetición del vector */
+  background-size: cover; /* Escalar el vector para cubrir todo el fondo */
+  background-position: center; /* Centrar el vector */
+  background-attachment: fixed; /* Fijar el vector al viewport */
 }
 
 a {
@@ -24,48 +30,147 @@ ul {
 
 /* Estilos del encabezado */
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-}
-
-nav ul {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #333;
 }
 
-nav ul li {
-  margin-right: 20px;
+nav {
+  display: flex;
+  align-items: center;
 }
 
-nav ul li a {
+.logo {
+  margin-right: 2rem;
+  margin-top: 1rem;
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-right: 2rem;
+}
+
+.menu a {
   color: #fff;
+  text-decoration: none;
 }
 
 /* Estilos del contenido principal */
+/* Estilos generales */
 main {
-  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 section {
-  margin-bottom: 40px;
+  margin-bottom: 3rem;
 }
 
-h1, h2, h3 {
-  margin-bottom: 20px;
+/* Estilos para la sección de hero */
+.hero {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para la sección de servicios */
+.servicios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.servicio {
+  width: 300px;
+  margin: 1rem;
+  text-align: center;
+}
+
+.servicio img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Estilos para la sección de acerca de */
+.about {
+  background-color: #f4f4f4;
+  padding: 2rem;
+  text-align: center;
+}
+
+.about p {
+  margin-bottom: 1rem;
 }
 
 .btn {
   display: inline-block;
   background-color: #333;
   color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
 }
-
 /* Estilos del pie de página */
 footer {
   background-color: #333;
   color: #fff;
-  padding: 20px;
+  padding: 2rem;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.columna {
+  flex-basis: 30%;
+  margin-bottom: 1rem;
+}
+
+.columna h3 {
+  margin-bottom: 0.5rem;
+}
+
+.columna ul {
+  list-style: none;
+  padding: 0;
+}
+
+.columna li {
+  margin-bottom: 0.25rem;
+}
+
+.columna a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.redes-sociales {
+  display: flex;
+}
+
+.redes-sociales li {
+  margin-right: 1rem;
+}
+
+.copyright {
   text-align: center;
 }
