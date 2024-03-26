@@ -5,18 +5,32 @@
   box-sizing: border-box;
 }
 
+.titillium-web-extralight {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
 /* Estilos generales */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 200;
+  font-style: normal;
   font-size: 16px;
   line-height: 1.5;
   color: #333;
-  background-color: #f0f0f0; /* Color de fondo sólido */
-  background-image: url("../assets/img/fondo.jpg"); /* Ruta al archivo SVG */
-  background-repeat: no-repeat; /* Evitar repetición del vector */
-  background-size: cover; /* Escalar el vector para cubrir todo el fondo */
-  background-position: center; /* Centrar el vector */
-  background-attachment: fixed; /* Fijar el vector al viewport */
+  background-color: #f0f0f0;
+  /* Color de fondo sólido */
+  background-image: url("../assets/img/fondo.jpg");
+  /* Ruta al archivo SVG */
+  background-repeat: no-repeat;
+  /* Evitar repetición del vector */
+  background-size: cover;
+  /* Escalar el vector para cubrir todo el fondo */
+  background-position: center;
+  /* Centrar el vector */
+  background-attachment: fixed;
+  /* Fijar el vector al viewport */
 }
 
 a {
@@ -114,8 +128,9 @@ section {
   text-align: center;
 }
 
-.about p {
+.about > p {
   margin-bottom: 1rem;
+  font-weight: 400;
 }
 
 .btn {
@@ -126,6 +141,7 @@ section {
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
 }
+
 /* Estilos del pie de página */
 footer {
   background-color: #333;
