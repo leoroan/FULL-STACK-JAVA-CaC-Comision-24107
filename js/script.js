@@ -1,58 +1,59 @@
 // console.log("hello world!");
 
-// function obtenerDatos() {
-//   fetch('https://65ad277dadbd5aa31be03afc.mockapi.io/bots')
-//     .then(response => response.json())
-//     .then(data => mostrarTarjetas(data))
-//     .catch(error => console.error('Error:', error));
-// }
+/**
+ * verifico si estamos logeados o no
+ */
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (localStorage.getItem('isLoggedIn') !== 'true') {
+    window.location.href = 'pages/login.html';
+  } else {
+    document.getElementById('loginButton').style.display = 'none';
+  }
+});
+
+function logout() {
+  var confirmation = confirm("¿Está seguro que desea cerrar sesión?");
+  if (confirmation) {
+    localStorage.removeItem('isLoggedIn');
+    window.location.href = 'pages/login.html';
+  }
+}
+
+const myApiKey = 'live_akpXmV8LguHz8vvy5v6mBhEIWNgYmz9K0OoYENO34OnzdIXJ4kMQsd8x0rr7WE0s'
 
 // // Función para crear la tarjeta
-// function crearTarjeta(id, name, imgs, price) {
-//   const contenedorDeTarjeta = document.createElement('div');
-//   contenedorDeTarjeta.classList.add('contenedorDeTarjeta');
+async function crearTarjeta() {
+  try {
+    const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=${myApiKey}`)
+    const data = await response.json();
+    console.log(data);
 
-//   // Crear el contenedor principal
-//   const card = document.createElement('div');
-//   card.classList.add('card');
+    const cardContainer = document.getElementById('card-container');
+    cardContainer.innerHTML = '';
 
-//   // Crear la imagen
-//   const img = document.createElement('img');
-//   img.src = imgs;
-//   img.alt = name;
-//   img.style.width = '100%';
-//   card.appendChild(img);
+    data.forEach(item => {
+      const cardHtml = createCard(item.url, item.breeds[0].name);
+      cardContainer.innerHTML += cardHtml;
+    });
+  } catch (error) {
+    console.error('Error al obtener los datos:', error);
+  }
+}
 
-//   // Crear el contenedor interno
-//   const container = document.createElement('div');
-//   container.classList.add('container');
+function createCard(imageUrl, text) {
+  return `
+      <div class="col">
+          <div class="card shadow-sm">
+              <img src="${imageUrl}" class="card-img-top" alt="a cat image">
+              <div class="card-body">
+                  <p class="card-text">${text}</p>
+                  <div class="d-flex justify-content-between align-items-center">                     
+                  </div>
+              </div>
+          </div>
+      </div>
+  `;
+}
 
-//   // Crear el título
-//   const title = document.createElement('h4');
-//   const titleBold = document.createElement('b');
-//   titleBold.textContent = name;
-//   title.appendChild(titleBold);
-//   container.appendChild(title);
-
-//   // Crear el párrafo
-//   const cost = document.createElement('p');
-//   cost.textContent = price;
-//   container.appendChild(cost);
-
-//   card.appendChild(container);
-
-//   contenedorDeTarjeta.appendChild(card);
-//   return contenedorDeTarjeta;
-// }
-
-// function mostrarTarjetas(datos) {
-//   const contenedor = document.getElementById('servicios');
-//   contenedor.innerHTML = '';
-
-//   datos.forEach(dato => {
-//     const tarjeta = crearTarjeta(dato.id, dato.name, dato.img, dato.price);
-//     contenedor.appendChild(tarjeta);
-//   });
-// }
-
-// obtenerDatos();
+crearTarjeta();
