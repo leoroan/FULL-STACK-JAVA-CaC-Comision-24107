@@ -1,4 +1,4 @@
-// console.log("hello world!");
+console.log("main script");
 
 /**
  * verifico si estamos logeados o no
