@@ -1,4 +1,4 @@
-// console.log("main script");
+console.log("now updated?");
 
 /**
  * verifico si estamos logeados o no
