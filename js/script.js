@@ -1,4 +1,4 @@
-console.log("main script");
+// console.log("main script");
 
 /**
  * verifico si estamos logeados o no
@@ -30,7 +30,7 @@ async function crearTarjeta() {
   try {
     const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=${myApiKey}`)
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
 
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML = '';
