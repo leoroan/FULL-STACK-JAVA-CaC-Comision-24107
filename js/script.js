@@ -6,7 +6,10 @@ console.log("main script");
 
 document.addEventListener('DOMContentLoaded', function () {
   if (localStorage.getItem('isLoggedIn') !== 'true') {
-    window.location.href = 'pages/login.html';
+    // window.location.href = 'pages/login.html';
+    // alert("usuario no logeado")
+    document.getElementById('loginButton').style.display = 'block';
+    document.getElementById('logOutButton').style.display = 'none';
   } else {
     document.getElementById('loginButton').style.display = 'none';
   }
